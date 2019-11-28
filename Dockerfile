@@ -9,9 +9,7 @@ RUN apk update && apk add composer git sqlite3 supervisor unzip zsh \
     && sed -i "s/pm\.start_servers = .*/pm.start_servers = 10/" /etc/php/7.4/fpm/pool.d/www.conf \
     && sed -i "s/pm\.min_spare_servers = .*/pm.min_spare_servers = 5/" /etc/php/7.4/fpm/pool.d/www.conf \
     && sed -i "s/pm\.max_spare_servers = .*/pm.max_spare_servers = 10/" /etc/php/7.4/fpm/pool.d/www.conf \
-
 	&& mkdir /run/php \
-
 	&& docker-php-ext-install bcmath exif igbinary mbstring pdo_mysql readline redis xdebug zip \
 	&& docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ \
 		--with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
