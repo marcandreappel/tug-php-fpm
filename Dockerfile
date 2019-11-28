@@ -20,13 +20,11 @@ RUN set -eux; \
         freetype-dev \
         gmp-dev \
         icu-dev \
-        imagemagick-dev \
         libintl \
         libjpeg-turbo-dev \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
-        postgresql-dev \
         zlib-dev \
         $PHPIZE_DEPS \
     ; \
@@ -36,7 +34,7 @@ RUN set -eux; \
         --with-jpeg-dir=/usr/include/ \
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
-        bcmath gd gmp intl pcache pdo_mysql pcntl sockets zip; \
+        bcmath gd gmp intl mbstring opcache phar mysqli pdo pdo_mysql pcntl sockets zip; \
     pecl update-channels; \
     pecl install imagick redis xdebug; \
     docker-php-ext-enable imagick redis xdebug; \
