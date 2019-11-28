@@ -24,9 +24,9 @@ RUN apk update && apk add composer git sqlite supervisor unzip zsh \
 		--with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
 	&& docker-php-ext-install gd
 
-COPY php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
-COPY xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
-COPY tug.ini /etc/php/7.4/fpm/conf.d/99-tug.ini
+COPY php-fpm.conf /etc/php7/php-fpm.conf
+COPY xdebug.ini /etc/php7/mods-available/xdebug.ini
+COPY tug.ini /etc/php7/conf.d/99-tug.ini
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 9000
