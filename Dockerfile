@@ -14,10 +14,10 @@ LABEL org.label-schema.schema-version="1.0" \
 WORKDIR /var/www/html
 
 RUN apk update && apk add composer git sqlite supervisor unzip zsh \
-	&& sed -i "s/pm\.max_children = .*/pm.max_children = 20/" /etc/php7/pool.d/www.conf \
-    && sed -i "s/pm\.start_servers = .*/pm.start_servers = 10/" /etc/php7/pool.d/www.conf \
-    && sed -i "s/pm\.min_spare_servers = .*/pm.min_spare_servers = 5/" /etc/php7/pool.d/www.conf \
-    && sed -i "s/pm\.max_spare_servers = .*/pm.max_spare_servers = 10/" /etc/php7/pool.d/www.conf \
+	&& sed -i "s/pm\.max_children = .*/pm.max_children = 20/" /etc/php7/php-fpm.d/www.conf \
+    && sed -i "s/pm\.start_servers = .*/pm.start_servers = 10/" /etc/php7/php-fpm.d/www.conf \
+    && sed -i "s/pm\.min_spare_servers = .*/pm.min_spare_servers = 5/" /etc/php7/php-fpm.d/www.conf \
+    && sed -i "s/pm\.max_spare_servers = .*/pm.max_spare_servers = 10/" /etc/php7/php-fpm.d/www.conf \
 	&& mkdir /run/php \
 	&& docker-php-ext-install bcmath exif igbinary mbstring pdo_mysql readline redis xdebug zip \
 	&& docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ \
