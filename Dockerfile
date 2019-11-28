@@ -13,7 +13,7 @@ LABEL org.label-schema.schema-version="1.0" \
 
 WORKDIR /var/www/html
 
-RUN apk update && apk add composer git sqlite3 supervisor unzip zsh \
+RUN apk update && apk add composer git sqlite supervisor unzip zsh \
 	&& sed -i "s/pm\.max_children = .*/pm.max_children = 20/" /etc/php/7.4/fpm/pool.d/www.conf \
     && sed -i "s/pm\.start_servers = .*/pm.start_servers = 10/" /etc/php/7.4/fpm/pool.d/www.conf \
     && sed -i "s/pm\.min_spare_servers = .*/pm.min_spare_servers = 5/" /etc/php/7.4/fpm/pool.d/www.conf \
