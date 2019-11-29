@@ -1,11 +1,11 @@
 hooks
-
 .git
-.gitignore
-
 .idea
 .vscode
-.editorconfig
 
-README.md
-LICENSE.md
+.editorconfig
+.gitignore
+*.md
+php-fpm.conf
+supervisord.conf
+xdebug.ini
