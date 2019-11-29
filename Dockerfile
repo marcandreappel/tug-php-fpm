@@ -25,6 +25,8 @@ RUN set -eux; \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
+        oniguruma-dev \
+        openssl-dev \
         zlib-dev \
         $PHPIZE_DEPS \
     ; \
