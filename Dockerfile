@@ -38,8 +38,8 @@ RUN set -eux; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath gd gmp intl mbstring opcache phar mysqli pdo pdo_mysql pcntl sockets zip; \
     pecl update-channels; \
-    pecl install imagick redis xdebug; \
-    docker-php-ext-enable imagick redis xdebug; \
+    pecl install redis xdebug; \
+    docker-php-ext-enable redis xdebug; \
     rm -rf /tmp/pear ~/.pearrc; \
     runDeps="$( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
